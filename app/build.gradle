@@ -1,0 +1,77 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id('com.google.dagger.hilt.android')
+}
+
+android {
+    namespace 'com.example.videoexp'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.videoexp"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
+
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
+
+    //Exo player
+    implementation 'com.google.android.exoplayer:exoplayer:2.17.0'
+    implementation "com.google.android.exoplayer:exoplayer-core:2.17.0"
+    implementation "com.google.android.exoplayer:exoplayer-dash:2.17.0"
+    implementation "com.google.android.exoplayer:exoplayer-hls:2.17.0"
+    implementation "com.google.android.exoplayer:exoplayer-smoothstreaming:2.17.0"
+    implementation "com.google.android.exoplayer:exoplayer-ui:2.17.0"
+
+    //dagger hilt
+    implementation("com.google.dagger:hilt-android:2.45")
+    kapt("com.google.dagger:hilt-android-compiler:2.45")
+    kapt 'androidx.hilt:hilt-compiler:1.0.0'
+
+    // Coroutines(includes kotlin flow)
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+
+
+    implementation 'androidx.databinding:databinding-runtime:8.0.2'
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
+}
